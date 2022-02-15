@@ -26,7 +26,7 @@
           </div>
           <div class="col-6 card-title align-self-center mb-0">
             <h5>{{student?.name}}</h5>
-            <p class="m-0">{{student?.preferredCourse}}</p>
+            <p class="m-0">{{student?.preferredSubject}}</p>
           </div>
         </div>
         <ul class="list-group list-group-flush">
@@ -69,9 +69,9 @@
             <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
           </div>
           <div class="form-group">
-            <label for="phone">Job title</label>
-            <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title"
-              required>
+            <label for="phone">Preferred Subject</label>
+            <input type="text" ngModel name="preferredSubject" class="form-control" id="preferredSubject"
+              placeholder="Preferred Subject" required>
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
@@ -119,9 +119,9 @@
               placeholder="Email" required>
           </div>
           <div class="form-group">
-            <label for="phone">Job title</label>
-            <input type="text" ngModel="{{editStudent?.preferredSubject}}" name="jobTitle" class="form-control"
-              id="jobTile" placeholder="Job title" required>
+            <label for="phone">Preferred Subject</label>
+            <input type="text" ngModel="{{editStudent?.preferredSubject}}" name="preferredSubject" class="form-control"
+              id="preferredSubject" placeholder="Preferred Subject" required>
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
