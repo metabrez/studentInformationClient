@@ -11,8 +11,8 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input type="search" ngModel name="key" id="searchName" class="form-control mr-sm-2"
-        placeholder="Search student..." required>
+      <input type="search" (ngModelChange)="searchStudent(key.value)" #key="ngModel" ngModel name="key" id="searchName"
+        class="form-control mr-sm-2" placeholder="Search student..." required>
     </form>
   </div>
 </nav>
@@ -166,3 +166,10 @@
   </div>
 </div>
 <!-- </div> -->
+<!-- Notification for no employees -->
+<div *ngIf="students?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO STUDENTS!</h4>
+    <p>No Students were found.</p>
+  </div>
+</div>

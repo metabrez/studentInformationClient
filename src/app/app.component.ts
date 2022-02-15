@@ -88,4 +88,19 @@ export class AppComponent implements OnInit {
       }
     );
   }
+  public searchStudent(key: string): void {
+    console.log('Key is ')
+    console.log(key)
+    const result: Student[] = [];
+    for (const student of this.students) {
+      if (student.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        result.push(student)
+        console.log(result)
+      }
+    }
+    this.students = result;
+    if (result.length === 0 || !key) {
+      this.getStudents();
+    }
+  }
 }
