@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   title = 'schoolPrincipleClientApp';
   public students: Student[];
   public editStudent: Student;
+  public deleteStudent: Student;
 
   constructor(private studentService: StudentService) {
 
@@ -38,6 +39,7 @@ export class AppComponent implements OnInit {
         console.log('add student.....')
         console.log(response)
         this.getStudents();
+        addForm.reset();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -58,6 +60,7 @@ export class AppComponent implements OnInit {
       button.setAttribute('data-target', '#editStudentModal')
     }
     if (mode === 'delete') {
+      this.deleteStudent = student;
       button.setAttribute('data-target', '#deleteStudentModal')
     }
     container.appendChild(button);
@@ -71,6 +74,17 @@ export class AppComponent implements OnInit {
       },
       (error: HttpErrorResponse) => {
         alert(error.message)
+      }
+    );
+  }
+  public onDeleteStudent(studentId: number): void {
+    this.studentService.deleteStudents(studentId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getStudents();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
       }
     );
   }
